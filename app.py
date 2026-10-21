@@ -93,20 +93,36 @@ def metric(label, value):
 
 
 sliders = []
+
 for ticker in TICKERS:
-    sliders.append(html.Div([
-        html.Div(ticker, id=f"label-{ticker}", style={
-            "fontWeight": "bold", "marginBottom": "12px"
-        }),
-        dcc.Slider(
-            id=f"weight-{ticker}",
-            min=0, max=100, step=1, value=25,
-            marks={0: "0", 50: "50", 100: "100"},
-tooltip={"placement": "bottom", "always_visible": True},
-updatemode="mouseup",
-    ], style={"marginBottom": "27px"}))
-
-
+    sliders.append(
+        html.Div(
+            [
+                html.Div(
+                    ticker,
+                    id=f"label-{ticker}",
+                    style={
+                        "fontWeight": "bold",
+                        "marginBottom": "12px",
+                    },
+                ),
+                dcc.Slider(
+                    id=f"weight-{ticker}",
+                    min=0,
+                    max=100,
+                    step=1,
+                    value=25,
+                    marks={0: "0", 50: "50", 100: "100"},
+                    tooltip={
+                        "placement": "bottom",
+                        "always_visible": True,
+                    },
+                    updatemode="mouseup",
+                ),
+            ],
+            style={"marginBottom": "27px"},
+        )
+    )
 app.layout = html.Div([
     dcc.Store(id="prices"),
     html.Div("JORDAN  /  MARKETS & ANALYTICS", style={
