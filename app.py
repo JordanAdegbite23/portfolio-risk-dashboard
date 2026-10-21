@@ -103,8 +103,7 @@ for ticker in TICKERS:
             min=0, max=100, step=1, value=25,
             marks={0: "0", 50: "50", 100: "100"},
 tooltip={"placement": "bottom", "always_visible": True},
-updatemode="drag",
-        ),
+updatemode="mouseup",
     ], style={"marginBottom": "27px"}))
 
 
